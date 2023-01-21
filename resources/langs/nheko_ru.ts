@@ -230,7 +230,7 @@
     <message>
         <location line="-554"/>
         <source>Confirm logout</source>
-        <translation type="unfinished"></translation>
+        <translation>Да, выйти</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1687,12 +1687,12 @@ Example: https://server.my:8787</source>
     <message>
         <location line="+25"/>
         <source>%2 changed the room name to: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%2 изменил(а) название комнаты на %1</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>%1 removed the room name</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 удалил(а) название комнаты</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -1717,7 +1717,7 @@ Example: https://server.my:8787</source>
     <message>
         <location line="+29"/>
         <source>%1 changed the addresses for this room.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 изменил адрес комнаты.</translation>
     </message>
     <message>
         <location line="+14"/>
