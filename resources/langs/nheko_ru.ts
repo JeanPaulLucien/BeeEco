@@ -3569,7 +3569,7 @@ If you choose verify, you need to have the other device available. If you choose
     <message>
         <location line="+4"/>
         <source>%1 can now kick room members.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 может выгонять из комнаты.</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -3701,12 +3701,12 @@ If you choose verify, you need to have the other device available. If you choose
     <message>
         <location line="+6"/>
         <source>%1 removed the following images from the pack %2:&lt;br&gt;%3</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 изъял картинки из набора %2:&lt;br&gt;%3</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>%1 added the following images to the pack %2:&lt;br&gt;%3</source>
-        <translation type="unfinished"></translation>
+        <translation">%1 внес картинки в набор %2:&lt;br&gt;%3</translation>
     </message>
     <message>
         <location line="+5"/>
