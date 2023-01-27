@@ -1,3 +1,8 @@
+# JeanPaulLucien tasks
+
+- drop web, mobile (maybe stay Android 4+) and Mac OS;
+- decrease C++ version;
+
 nheko
 ----
 [![Build Status](https://nheko.im/nheko-reborn/nheko/badges/master/pipeline.svg)](https://nheko.im/nheko-reborn/nheko/-/pipelines/latest)
@@ -13,9 +18,8 @@ The motivation behind the project is to provide a native desktop app for [Matrix
 feels more like a mainstream chat app ([Element], Telegram etc) and less like an IRC client.
 
 ### Translations ###
-[![Translation status](http://weblate.nheko.im/widgets/nheko/-/nheko-master/svg-badge.svg)](http://weblate.nheko.im/engage/nheko/?utm_source=widget)
-
-Help us with translations so as many people as possible will be able to use nheko!
+All strings are placed in https://github.com/JeanPaulLucien/nheko/tree/master/resources/langs
+Help me with Ukrainian and Polish.
 
 ### Note regarding End-to-End encryption
 
