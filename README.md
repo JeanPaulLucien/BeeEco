@@ -1,4 +1,4 @@
-# JeanPaulLucien tasks
+## Tasks
 
 - drop web, mobile (maybe stay Android 4+) and Mac OS;
 - decrease C++ version;
