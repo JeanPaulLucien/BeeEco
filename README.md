@@ -19,6 +19,7 @@ feels more like a mainstream chat app ([Element], Telegram etc) and less like an
 
 ### Translations ###
 All strings are placed in https://github.com/JeanPaulLucien/nheko/tree/master/resources/langs
+
 Help me with Ukrainian and Polish.
 
 ### Note regarding End-to-End encryption
