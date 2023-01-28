@@ -22,7 +22,7 @@
     <message>
         <location line="+17"/>
         <source>Hide/Show Picture-in-Picture</source>
-        <translation>Убрать/Показать Картинку-в-Картинке</translation>
+        <translation>Убрать/Показать Картинку-в-картинке</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -173,7 +173,7 @@
     <message>
         <location line="+0"/>
         <source>Voice Call</source>
-        <translation>Голосовой Звонок</translation>
+        <translation>Звонок</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -225,7 +225,7 @@
         <location line="+4"/>
         <location line="+834"/>
         <source>Invited user: %1</source>
-        <translation>Приглашенный пользователь: %1</translation>
+        <translation>Приглашен пользователь %1</translation>
     </message>
     <message>
         <location line="-554"/>
@@ -402,7 +402,7 @@ You may optionally provide a reason for others to accept your knock:</source>
     <message>
         <location line="+1"/>
         <source>Enter reason for kicking %1 (%2) or hit enter for no reason:</source>
-        <translation type="unfinished"></translation>
+        <translation>Указать причину исключения %1 (%2) или </translation>
     </message>
     <message>
         <location line="+15"/>
@@ -460,12 +460,12 @@ You may optionally provide a reason for others to accept your knock:</source>
     <message>
         <location line="+2"/>
         <source>/invite @userid [reason]</source>
-        <translation type="unfinished"></translation>
+        <translation>/invite @userid [причина]</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>/kick @userid [reason]</source>
-        <translation type="unfinished"></translation>
+        <translation>/kick @userid [причина]</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -485,7 +485,7 @@ You may optionally provide a reason for others to accept your knock:</source>
     <message>
         <location line="+2"/>
         <source>/roomnick &lt;displayname&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>/roomnick</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -525,12 +525,12 @@ You may optionally provide a reason for others to accept your knock:</source>
     <message>
         <location line="+2"/>
         <source>/md [message]</source>
-        <translation type="unfinished"></translation>
+        <translation>/md [сообщение]</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>/plain [message]</source>
-        <translation type="unfinished"></translation>
+        <translation>/plain [сообщение]</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -590,7 +590,7 @@ You may optionally provide a reason for others to accept your knock:</source>
     <message>
         <location line="+2"/>
         <source>Join a room. Reason is optional.</source>
-        <translation type="unfinished"></translation>
+        <translation>Войти в комнату и можно указать причину.</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -601,7 +601,7 @@ You may optionally provide a reason for others to accept your knock:</source>
         <location line="+2"/>
         <location line="+2"/>
         <source>Leave a room. Reason is optional.</source>
-        <translation type="unfinished"></translation>
+        <translation>Уйти из комнаты и можно указать причину.</translation>
     </message>
     <message>
         <location line="+2"/>
