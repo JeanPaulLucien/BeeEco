@@ -1,3 +1,5 @@
+## Move to in-develop branch!
+
 nheko
 ----
 [![Build Status](https://nheko.im/nheko-reborn/nheko/badges/master/pipeline.svg)](https://nheko.im/nheko-reborn/nheko/-/pipelines/latest)
@@ -13,14 +15,10 @@ The motivation behind the project is to provide a native desktop app for [Matrix
 feels more like a mainstream chat app ([Element], Telegram etc) and less like an IRC client.
 
 ### Translations ###
-[![Translation status](http://weblate.nheko.im/widgets/nheko/-/nheko-master/svg-badge.svg)](http://weblate.nheko.im/engage/nheko/?utm_source=widget)
-
-Help us with translations so as many people as possible will be able to use nheko!
 
 ### Note regarding End-to-End encryption
 
-The current implementation is mostly stable, but it was never audited. If you
-rely on it for security, we can't make any guarantees.
+Mostly stable, but it was never audited. No guarantees.
 
 ## Features
 
@@ -49,7 +47,7 @@ Specifically there is support for:
 
 ### Releases
 
-Releases for Linux (AppImage), macOS (disk image) & Windows (x64 installer)
+Releases for Linux (AppImage) & Windows (x64 installer)
 can be found in the [GitHub releases](https://github.com/Nheko-Reborn/nheko/releases).
 
 ### Repositories
@@ -153,14 +151,6 @@ kwalletd5&
 flatpak run --env=XDG_CURRENT_DESKTOP=KDE --env=KDE_SESSION_VERSION=5 --branch=stable --arch=x86_64 --command=io.github.NhekoReborn.Nheko --file-forwarding io.github.NhekoReborn.Nheko @@u @@
 ```
 
-#### macOS (10.14 and above)
-
-with [homebrew](https://brew.sh/):
-
-```sh
-brew install --cask nheko
-```
-
 #### Windows
 
 with [Chocolatey](https://chocolatey.org/):
@@ -181,8 +171,6 @@ nheko does not provide binaries for any D-Bus plugins. However, we do provide th
 ---
 
 **Q:** Why don't videos run for me on Windows?
-
-**A:** You're probably missing the required video codecs, download [K-Lite Codec Pack](https://codecguide.com/download_kl.htm).
 
 ---
 
