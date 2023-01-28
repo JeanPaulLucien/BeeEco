@@ -230,7 +230,7 @@
     <message>
         <location line="-554"/>
         <source>Confirm logout</source>
-        <translation></translation>
+        <translation>Да, выйти</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1687,12 +1687,12 @@ Example: https://server.my:8787</source>
     <message>
         <location line="+25"/>
         <source>%2 changed the room name to: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%2 изменил(а) название комнаты на %1</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>%1 removed the room name</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 удалил(а) название комнаты</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -1717,7 +1717,7 @@ Example: https://server.my:8787</source>
     <message>
         <location line="+29"/>
         <source>%1 changed the addresses for this room.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 изменил адрес комнаты.</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -3569,7 +3569,7 @@ If you choose verify, you need to have the other device available. If you choose
     <message>
         <location line="+4"/>
         <source>%1 can now kick room members.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 может выгонять из комнаты.</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -3701,12 +3701,12 @@ If you choose verify, you need to have the other device available. If you choose
     <message>
         <location line="+6"/>
         <source>%1 removed the following images from the pack %2:&lt;br&gt;%3</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 изъял картинки из набора %2:&lt;br&gt;%3</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>%1 added the following images to the pack %2:&lt;br&gt;%3</source>
-        <translation type="unfinished"></translation>
+        <translation">%1 внес картинки в набор %2:&lt;br&gt;%3</translation>
     </message>
     <message>
         <location line="+5"/>

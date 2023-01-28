@@ -89,7 +89,6 @@ Rectangle {
                     delayed: true
                     restoreMode: Binding.RestoreBindingOrValue
                 }
-
             }
 
             AdaptiveLayoutElement {
@@ -103,9 +102,10 @@ Rectangle {
                 collapsedWidth: roomlist.avatarSize + 2 * Nheko.paddingMedium
 
                 RoomList {
-                    id: roomlist
-
+                    id: roomlist                    
+           
                     height: adaptiveView.height
+                    width: 400
                     collapsed: parent.collapsed
                 }
 
@@ -117,7 +117,6 @@ Rectangle {
                     delayed: true
                     restoreMode: Binding.RestoreBindingOrValue
                 }
-
             }
 
             AdaptiveLayoutElement {
@@ -132,11 +131,8 @@ Rectangle {
                     room: Rooms.currentRoom
                     roomPreview: Rooms.currentRoomPreview.roomid ? Rooms.currentRoomPreview : null
                 }
-
             }
-
         }
-
     }
 
     PrivacyScreen {
@@ -146,5 +142,4 @@ Rectangle {
         timelineRoot: adaptiveView
         windowTarget: MainWindow
     }
-
 }
