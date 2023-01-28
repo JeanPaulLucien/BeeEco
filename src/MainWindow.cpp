@@ -377,10 +377,9 @@ void
 MainWindow::saveCurrentWindowSize()
 {
     auto settings = userSettings_->qsettings();
-    QSize current = size();
-
-    settings->setValue(QStringLiteral("window/width"), current.width());
-    settings->setValue(QStringLiteral("window/height"), current.height());
+ 
+    settings->setValue(QStringLiteral("window/width"), availableSize().width());
+    settings->setValue(QStringLiteral("window/height"), availableSize().height());
 }
 
 void
