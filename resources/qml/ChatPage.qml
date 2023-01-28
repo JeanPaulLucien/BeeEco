@@ -89,7 +89,6 @@ Rectangle {
                     delayed: true
                     restoreMode: Binding.RestoreBindingOrValue
                 }
-
             }
 
             AdaptiveLayoutElement {
@@ -106,7 +105,7 @@ Rectangle {
                     id: roomlist                    
            
                     height: adaptiveView.height
-                    width: 460
+                    width: 400
                     collapsed: parent.collapsed
                 }
 
@@ -118,7 +117,6 @@ Rectangle {
                     delayed: true
                     restoreMode: Binding.RestoreBindingOrValue
                 }
-
             }
 
             AdaptiveLayoutElement {
@@ -133,11 +131,8 @@ Rectangle {
                     room: Rooms.currentRoom
                     roomPreview: Rooms.currentRoomPreview.roomid ? Rooms.currentRoomPreview : null
                 }
-
             }
-
         }
-
     }
 
     PrivacyScreen {
@@ -147,5 +142,4 @@ Rectangle {
         timelineRoot: adaptiveView
         windowTarget: MainWindow
     }
-
 }
