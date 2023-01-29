@@ -1,15 +1,13 @@
 ## Move to in-develop branch!
 
-nheko
-----
-[![Build Status](https://nheko.im/nheko-reborn/nheko/badges/master/pipeline.svg)](https://nheko.im/nheko-reborn/nheko/-/pipelines/latest)
-[![Build status](https://ci.appveyor.com/api/projects/status/07qrqbfylsg4hw2h/branch/master?svg=true)](https://ci.appveyor.com/project/redsky17/nheko/branch/master)
-<a href='https://flatpak.neko.dev/repo/nightly/appstream/io.github.NhekoReborn.Nheko.flatpakref' download='nheko-nightly.flatpakref'><img alt='Download Nightly Flatpak' src='https://img.shields.io/badge/download-flatpak--nightly-green'/></a>
-[![#nheko-reborn:matrix.org](https://img.shields.io/matrix/nheko-reborn:matrix.org.svg?label=%23nheko-reborn:matrix.org)](https://matrix.to/#/#nheko-reborn:matrix.org)
-[![AUR: nheko](https://img.shields.io/badge/AUR-nheko-blue.svg)](https://aur.archlinux.org/packages/nheko)
+### Requirments for pull requests:
+1. Improve durability;
+2. Increase performance;
+3. Improve UX;
+4. I did not find nothing in C++ or Qt documentation that code is incorrect. 
 
-The motivation behind the project is to provide a native desktop app for [Matrix] that
-feels more like a mainstream chat app ([Element], Telegram etc) and less like an IRC client.
+BeeEco
+----
 
 ### Translations ###
 
