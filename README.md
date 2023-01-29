@@ -1,6 +1,7 @@
 ## Move to in-develop branch!
 
-### Requirments for pull requests:
+### Requirments for pull requests
+It's highly change that you PR will be accepted, if:
 1. Improve durability;
 2. Increase performance;
 3. Improve UX;
