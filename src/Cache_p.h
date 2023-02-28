@@ -167,6 +167,9 @@ public:
     RoomInfo singleRoomInfo(const std::string &room_id);
     std::vector<std::string> roomsWithStateUpdates(const mtx::responses::Sync &res);
     std::map<QString, RoomInfo> getRoomInfo(const std::vector<std::string> &rooms);
+
+    std::vector<RoomNameAlias> roomNamesAndAliases();
+
     void updateLastMessageTimestamp(const std::string &room_id, uint64_t ts);
 
     //! Calculates which the read status of a room.
@@ -332,7 +335,8 @@ private:
     void loadSecretsFromStore(
       std::vector<std::pair<std::string, bool>> toLoad,
       std::function<void(const std::string &name, bool internal, const std::string &value)>
-        callback);
+        callback,
+      bool databaseReadyOnFinished = false);
     void storeSecretInStore(const std::string name, const std::string secret);
     void deleteSecretFromStore(const std::string name, bool internal);
 

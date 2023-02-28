@@ -51,6 +51,12 @@ Page {
         model: Rooms
         reuseItems: true
 
+        ScrollBar.vertical: ScrollBar {
+            id: roomlistscrollbar
+            active: true
+            visible: (! collapsed) && (parent.contentHeight > parent.height)
+        }
+
         ScrollHelper {
             flickable: parent
             anchors.fill: parent
@@ -249,16 +255,13 @@ Page {
             }
 
             height: avatarSize + 2 * Nheko.paddingMedium
-            width: ListView.view.width
+            width: ListView.view.width - roomlistscrollbar.width
             state: "normal"
             ToolTip.visible: hovered && collapsed
             ToolTip.delay: Nheko.tooltipDelay
             ToolTip.text: roomName
             onClicked: {
                 console.log("tapped " + roomId);
-
-                if (isSpace && Communities.currentTagId != "space:"+roomId)
-                    Communities.currentTagId = "space:"+roomId;
 
                 if (!Rooms.currentRoom || Rooms.currentRoom.roomId !== roomId)
                     Rooms.setCurrentRoom(roomId);
@@ -390,7 +393,7 @@ Page {
                             Layout.alignment: Qt.AlignBaseline
                             color: roomItem.importantText
                             elideWidth: width
-                            fullText: roomName
+                            fullText: TimelineManager.htmlEscape(roomName)
                             textFormat: Text.RichText
                             Layout.fillWidth: true
                         }

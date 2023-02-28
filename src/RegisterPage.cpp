@@ -83,16 +83,16 @@ RegisterPage::setServer(const QString &server)
 
               if (!err->parse_error.empty()) {
                   setHsError(tr("Autodiscovery failed. Received malformed response."));
-                  nhlog::net()->error("Autodiscovery failed. Received malformed response.");
+                  nhlog::net()->error("Autodiscovery failed. Received malformed response. {}",
+                                      err->parse_error);
                   emit hsErrorChanged();
                   return;
               }
 
               setHsError(tr("Autodiscovery failed. Unknown error when requesting .well-known."));
               nhlog::net()->error("Autodiscovery failed. Unknown error when "
-                                  "requesting .well-known. {} {}",
-                                  err->status_code,
-                                  err->error_code);
+                                  "requesting .well-known. {}",
+                                  *err);
               return;
           }
 
@@ -109,65 +109,69 @@ RegisterPage::versionsCheck()
 {
     // Make a request to /_matrix/client/versions to check the address
     // given is a Matrix homeserver.
-    http::client()->versions(
-      [this](const mtx::responses::Versions &versions, mtx::http::RequestErr err) {
-          if (err) {
-              if (err->status_code == 404) {
-                  setHsError(
-                    tr("The required endpoints were not found. Possibly not a Matrix server."));
-                  emit hsErrorChanged();
-                  return;
-              }
+    http::client()->versions([this](const mtx::responses::Versions &versions,
+                                    mtx::http::RequestErr err) {
+        if (err) {
+            if (err->status_code == 404) {
+                setHsError(
+                  tr("The required endpoints were not found. Possibly not a Matrix server."));
+                emit hsErrorChanged();
+                return;
+            }
 
-              if (!err->parse_error.empty()) {
-                  setHsError(
-                    tr("Received malformed response. Make sure the homeserver domain is valid."));
-                  emit hsErrorChanged();
-                  return;
-              }
+            if (!err->parse_error.empty()) {
+                setHsError(
+                  tr("Received malformed response. Make sure the homeserver domain is valid."));
+                emit hsErrorChanged();
+                return;
+            }
 
-              setHsError(tr("An unknown error occured. Make sure the homeserver domain is valid."));
-              emit hsErrorChanged();
-              return;
-          }
+            setHsError(tr("An unknown error occured. Make sure the homeserver domain is valid."));
+            emit hsErrorChanged();
+            return;
+        }
 
-          if (std::find_if(
-                versions.versions.cbegin(), versions.versions.cend(), [](const std::string &v) {
-                    static const std::set<std::string_view, std::less<>> supported{
-                      "v1.1",
-                      "v1.2",
-                      "v1.3",
-                      "v1.4",
-                    };
-                    return supported.count(v) != 0;
-                }) == versions.versions.cend()) {
-              emit setHsError(
-                tr("The selected server does not support a version of the Matrix protocol that "
-                   "this client understands (v1.1 to v1.4). You can't register."));
-              emit hsErrorChanged();
-              return;
-          }
+        if (std::find_if(
+              versions.versions.cbegin(), versions.versions.cend(), [](const std::string &v) {
+                  static const std::set<std::string_view, std::less<>> supported{
+                    "v1.1",
+                    "v1.2",
+                    "v1.3",
+                    "v1.4",
+                    "v1.5",
+                  };
+                  return supported.count(v) != 0;
+              }) == versions.versions.cend()) {
+            emit setHsError(
+              tr("The selected server does not support a version of the Matrix protocol that "
+                 "this client understands (v1.1 to v1.5). You can't register."));
+            emit hsErrorChanged();
+            return;
+        }
 
-          http::client()->registration(
-            [this](const mtx::responses::Register &, mtx::http::RequestErr e) {
-                nhlog::net()->debug("Registration check: {}", e);
+        http::client()->registration([this](const mtx::responses::Register &,
+                                            mtx::http::RequestErr e) {
+            nhlog::net()->debug("Registration check: {}", e);
 
-                if (!e) {
-                    setHsError(tr("Server does not support querying registration flows!"));
-                    emit hsErrorChanged();
-                    return;
-                }
-                if (e->status_code != 401) {
-                    setHsError(tr("Server does not support registration."));
-                    emit hsErrorChanged();
-                    return;
-                }
+            if (!e) {
+                setHsError(tr("Server does not support querying registration flows!"));
+                emit hsErrorChanged();
+                return;
+            }
+            if (e->status_code != 401) {
+                setHsError(tr("Server does not support registration."));
+                emit hsErrorChanged();
+                return;
+            }
 
-                supported_   = true;
-                lookingUpHs_ = false;
-                emit lookingUpHsChanged();
-            });
-      });
+            for (const auto &f : e->matrix_error.unauthorized.flows)
+                nhlog::ui()->debug("Registration flows for server: {}", fmt::join(f.stages, ", "));
+
+            supported_   = true;
+            lookingUpHs_ = false;
+            emit lookingUpHsChanged();
+        });
+    });
 }
 
 void
@@ -236,18 +240,13 @@ RegisterPage::startRegistration(const QString &username,
 
               // The server requires registration flows.
               if (err->status_code == 401 && err->matrix_error.unauthorized.flows.empty()) {
-                  nhlog::net()->warn("failed to retrieve registration flows: "
-                                     "status_code({}), matrix_error({}) ",
-                                     static_cast<int>(err->status_code),
-                                     err->matrix_error.error);
+                  nhlog::net()->warn("failed to retrieve registration flows: {}", *err);
                   setError(QString::fromStdString(err->matrix_error.error));
                   disconnect(UIA::instance(), &UIA::error, this, nullptr);
                   return;
               }
 
-              nhlog::net()->error("failed to register: status_code ({}), matrix_error({})",
-                                  static_cast<int>(err->status_code),
-                                  err->matrix_error.error);
+              nhlog::net()->error("failed to register: {}", *err);
 
               setError(QString::fromStdString(err->matrix_error.error));
               disconnect(UIA::instance(), &UIA::error, this, nullptr);
