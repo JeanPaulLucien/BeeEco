@@ -1,7 +1,7 @@
 ## Move to in-develop branch!
 
 ### Requirments for pull requests
-It's highly change that you PR will be accepted, if:
+The next PRs are welcome:
 1. Improve durability;
 2. Increase performance;
 3. Improve UX;
@@ -43,8 +43,7 @@ Specifically there is support for:
 
 ### Releases
 
-Releases for Linux (AppImage) & Windows (x64 installer)
-can be found in the [GitHub releases](https://github.com/Nheko-Reborn/nheko/releases).
+Windows only.
 
 ### Repositories
 
@@ -71,89 +70,6 @@ sudo pacman -Syu nheko
 This imports the repository's public PGP key and locally signs it, adds the pertinent entry to `/etc/pacman.conf`, and installs nheko after updating the databases/system; one can now treat nheko as a typical package. 
 
 To undo these changes, delete the repository entry from `/etc/pacman.conf`, and remove the public signing key with `sudo pacman-key -d 4D41B287F3ABC4B8`.
-
-#### Debian (10 and above) / Ubuntu (18.04 and above)
-
-```bash
-sudo apt install nheko
-```
-
-#### Fedora
-```bash
-sudo dnf install nheko
-```
-
-#### Gentoo Linux
-
-```bash
-sudo eselect repository enable guru
-sudo emaint sync -r guru
-sudo emerge -a nheko
-```
-
-If you are using Gnome Keyring or KeepassXC as your secrets daemon, ensure that the `gnome-keyring` useflag is enabled on `dev-libs/qtkeychain`.
-
-#### Nix(os)
-
-```bash
-nix-env -iA nixpkgs.nheko
-# or
-nix-shell -p nheko --run nheko
-```
-
-#### Alpine Linux (and postmarketOS)
-
-Make sure you have the testing repositories from `edge` enabled. Note that this is not needed on postmarketOS.
-
-```sh
-sudo apk add nheko
-```
-
-#### openSUSE
-
-Note: these instructions have only been tested on Tumbleweed.
-
-First, install nheko:
-```bash
-sudo zypper addrepo https://download.opensuse.org/repositories/network:messaging:matrix/openSUSE_Tumbleweed/network:messaging:matrix.repo
-sudo zypper ref
-sudo zypper in nheko
-```
-
-If you want to add jdenticon support:
-
-```bash
-sudo zypper install qt-jdenticon
-```
-
-#### Flatpak
-
-```
-flatpak install flathub io.github.NhekoReborn.Nheko
-```
-
-#### Guix
-
-```
-guix install nheko
-```
-
-#### Steam Deck
-
-Install nheko via the `Discover` app in Desktop Mode (this installs the flatpak). To also make it work in Game Mode you'll have create a wrapper script that starts kwalletd and then nheko. You can create `/home/deck/nheko.sh` with the following content and then add this script as a "Non-Steam Game" to Steam.
-```bash
-#!/bin/sh
-kwalletd5&
-flatpak run --env=XDG_CURRENT_DESKTOP=KDE --env=KDE_SESSION_VERSION=5 --branch=stable --arch=x86_64 --command=io.github.NhekoReborn.Nheko --file-forwarding io.github.NhekoReborn.Nheko @@u @@
-```
-
-#### Windows
-
-with [Chocolatey](https://chocolatey.org/):
-
-```posh
-choco install nheko-reborn
-```
 
 #### D-Bus plugins
 
